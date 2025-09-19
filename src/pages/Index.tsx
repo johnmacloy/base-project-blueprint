@@ -1,13 +1,25 @@
-// Update this page (the content is just a fallback if you fail to update the page)
-
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <main className="min-h-screen bg-gradient-subtle flex items-center justify-center p-6">
+      <div className="max-w-2xl mx-auto text-center space-y-6">
+        <div className="space-y-4">
+          <h1 className="text-4xl sm:text-5xl font-light tracking-tight text-foreground">
+            Ready to Build
+          </h1>
+          <p className="text-lg text-muted-foreground font-light">
+            Your clean canvas awaits. Start creating something beautiful.
+          </p>
+        </div>
+        
+        <div className="w-24 h-0.5 bg-gradient-primary mx-auto rounded-full opacity-50"></div>
+        
+        <div className="pt-4">
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-card shadow-soft">
+            <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+          </div>
+        </div>
       </div>
-    </div>
+    </main>
   );
 };
 
