@@ -47,7 +47,7 @@ const SpecialOffers = () => {
           </div>
 
           {/* Member Exclusive */}
-          <div className="bg-gradient-to-br from-navy to-navy/80 text-white p-8 rounded-xl relative overflow-hidden md:col-span-2 lg:col-span-1">
+          <div className="bg-gradient-to-br from-navy to-navy/80 text-white p-8 rounded-xl relative overflow-hidden">
             <Badge className="bg-primary text-white mb-4">Members Only</Badge>
             <h3 className="text-2xl font-bold mb-2">Extra 15% Off</h3>
             <p className="text-white/90 mb-6">Join our premium membership</p>
