@@ -1,4 +1,6 @@
+import { useState } from "react";
 import ProductCard from "./ProductCard";
+import ProductQuickViewModal from "./ProductQuickViewModal";
 import headphones from "@/assets/headphones.jpg";
 import smartphone from "@/assets/smartphone.jpg";
 import watch from "@/assets/watch.jpg";
@@ -48,6 +50,19 @@ const bestSellers = [
 ];
 
 const BestSellers = () => {
+  const [selectedProduct, setSelectedProduct] = useState<any>(null);
+  const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
+
+  const handleQuickView = (product: any) => {
+    setSelectedProduct(product);
+    setIsQuickViewOpen(true);
+  };
+
+  const handleCloseQuickView = () => {
+    setIsQuickViewOpen(false);
+    setSelectedProduct(null);
+  };
+
   return (
     <section className="py-16 bg-section">
       <div className="container mx-auto px-4">
@@ -65,9 +80,16 @@ const BestSellers = () => {
             <ProductCard
               key={product.id}
               {...product}
+              onQuickView={handleQuickView}
             />
           ))}
         </div>
+
+        <ProductQuickViewModal
+          product={selectedProduct}
+          isOpen={isQuickViewOpen}
+          onClose={handleCloseQuickView}
+        />
       </div>
     </section>
   );

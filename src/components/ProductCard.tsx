@@ -12,9 +12,11 @@ interface ProductCardProps {
   reviews: number;
   isOnSale?: boolean;
   discount?: number;
+  onQuickView?: (product: ProductCardProps) => void;
 }
 
 const ProductCard = ({ 
+  id,
   name, 
   price, 
   originalPrice, 
@@ -22,7 +24,8 @@ const ProductCard = ({
   rating, 
   reviews, 
   isOnSale = false,
-  discount 
+  discount,
+  onQuickView 
 }: ProductCardProps) => {
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, index) => (
@@ -62,7 +65,10 @@ const ProductCard = ({
         
         {/* Overlay with quick view button */}
         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <Button className="bg-white text-navy hover:bg-gray-100 transition-all duration-300">
+          <Button 
+            className="bg-white text-navy hover:bg-gray-100 transition-all duration-300"
+            onClick={() => onQuickView?.({ id, name, price, originalPrice, image, rating, reviews, isOnSale, discount })}
+          >
             Quick View
           </Button>
         </div>
