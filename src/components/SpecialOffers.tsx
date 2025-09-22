@@ -15,9 +15,9 @@ const SpecialOffers = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Flash Sale */}
-          <div className="bg-gradient-to-br from-offer to-offer/80 text-white p-8 rounded-xl relative overflow-hidden">
+          <div className="bg-gradient-to-br from-destructive to-destructive/80 text-white p-8 rounded-xl relative overflow-hidden shadow-lg">
             <div className="absolute top-4 right-4">
               <Zap className="w-8 h-8 text-yellow-300" />
             </div>
@@ -28,26 +28,26 @@ const SpecialOffers = () => {
               <Clock className="w-4 h-4" />
               <span className="text-sm">Ends in 2 days</span>
             </div>
-            <Button variant="secondary" className="bg-white text-offer hover:bg-white/90">
+            <Button variant="secondary" className="bg-white text-destructive hover:bg-white/90">
               Shop Now
             </Button>
           </div>
 
           {/* Free Shipping */}
-          <div className="bg-gradient-to-br from-accent to-accent/80 text-white p-8 rounded-xl relative overflow-hidden">
+          <div className="bg-gradient-to-br from-primary to-primary/80 text-white p-8 rounded-xl relative overflow-hidden shadow-lg">
             <div className="absolute top-4 right-4">
               <Gift className="w-8 h-8 text-blue-200" />
             </div>
             <Badge className="bg-white/20 text-white mb-4">Free Shipping</Badge>
             <h3 className="text-2xl font-bold mb-2">Orders Over $50</h3>
             <p className="text-white/90 mb-6">Fast & reliable delivery</p>
-            <Button variant="secondary" className="bg-white text-accent hover:bg-white/90">
+            <Button variant="secondary" className="bg-white text-primary hover:bg-white/90">
               Learn More
             </Button>
           </div>
 
           {/* Member Exclusive */}
-          <div className="bg-gradient-to-br from-navy to-navy/80 text-white p-8 rounded-xl relative overflow-hidden">
+          <div className="bg-gradient-to-br from-secondary to-secondary/80 text-white p-8 rounded-xl relative overflow-hidden shadow-lg">
             <Badge className="bg-primary text-white mb-4">Members Only</Badge>
             <h3 className="text-2xl font-bold mb-2">Extra 15% Off</h3>
             <p className="text-white/90 mb-6">Join our premium membership</p>
