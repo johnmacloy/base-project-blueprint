@@ -38,7 +38,7 @@ const ProductCard = ({
   };
 
   return (
-    <div className="product-card group">
+    <div className="product-card group transition-all duration-300">
       {/* Product Image */}
       <div className="relative overflow-hidden rounded-lg mb-4">
         {isOnSale && discount && (
@@ -49,20 +49,20 @@ const ProductCard = ({
         <Button
           variant="ghost"
           size="icon"
-          className="absolute top-2 right-2 bg-white/80 hover:bg-white z-10"
+          className="absolute top-2 right-2 bg-white/80 hover:bg-white z-10 opacity-0 group-hover:opacity-100 transition-all duration-300"
         >
-          <Heart className="h-4 w-4" />
+          <Heart className="h-4 w-4 hover:text-offer transition-colors" />
         </Button>
         
         <img 
           src={image} 
           alt={name}
-          className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+          className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
         />
         
         {/* Overlay with quick view button */}
         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <Button className="bg-white text-navy hover:bg-gray-100">
+          <Button className="bg-white text-navy hover:bg-gray-100 transition-all duration-300">
             Quick View
           </Button>
         </div>
@@ -95,8 +95,8 @@ const ProductCard = ({
         </div>
 
         {/* Add to Cart Button */}
-        <Button className="w-full bg-primary hover:bg-primary/90 text-white">
-          <ShoppingCart className="h-4 w-4 mr-2" />
+        <Button className="w-full bg-primary hover:bg-primary/90 text-white transition-all duration-300 group">
+          <ShoppingCart className="h-4 w-4 mr-2 group-hover:rotate-12 transition-transform" />
           Add to Cart
         </Button>
       </div>

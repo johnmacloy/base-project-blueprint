@@ -1,6 +1,7 @@
 import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -31,9 +32,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h2 className="text-2xl font-bold mb-4">
+            <Link to="/" className="text-2xl font-bold mb-4 inline-block">
               E<span className="text-orange">Store</span>
-            </h2>
+            </Link>
             <p className="text-white/80 mb-4">
               Your trusted destination for quality products at unbeatable prices. 
               Shop with confidence and enjoy fast, reliable delivery.
@@ -58,11 +59,11 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-white/80 hover:text-orange transition-colors">About Us</a></li>
-              <li><a href="#" className="text-white/80 hover:text-orange transition-colors">Contact</a></li>
-              <li><a href="#" className="text-white/80 hover:text-orange transition-colors">FAQ</a></li>
-              <li><a href="#" className="text-white/80 hover:text-orange transition-colors">Shipping Info</a></li>
-              <li><a href="#" className="text-white/80 hover:text-orange transition-colors">Returns</a></li>
+              <li><Link to="/about" className="text-white/80 hover:text-orange transition-colors">About Us</Link></li>
+              <li><Link to="/contact" className="text-white/80 hover:text-orange transition-colors">Contact</Link></li>
+              <li><Link to="/faq" className="text-white/80 hover:text-orange transition-colors">FAQ</Link></li>
+              <li><Link to="/track-order" className="text-white/80 hover:text-orange transition-colors">Shipping Info</Link></li>
+              <li><Link to="/return-policy" className="text-white/80 hover:text-orange transition-colors">Returns</Link></li>
             </ul>
           </div>
 
@@ -70,11 +71,11 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Categories</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-white/80 hover:text-orange transition-colors">Electronics</a></li>
-              <li><a href="#" className="text-white/80 hover:text-orange transition-colors">Fashion</a></li>
-              <li><a href="#" className="text-white/80 hover:text-orange transition-colors">Home & Garden</a></li>
-              <li><a href="#" className="text-white/80 hover:text-orange transition-colors">Sports</a></li>
-              <li><a href="#" className="text-white/80 hover:text-orange transition-colors">Books</a></li>
+              <li><Link to="/category/electronics" className="text-white/80 hover:text-orange transition-colors">Electronics</Link></li>
+              <li><Link to="/category/fashion" className="text-white/80 hover:text-orange transition-colors">Fashion</Link></li>
+              <li><Link to="/category/home" className="text-white/80 hover:text-orange transition-colors">Home & Garden</Link></li>
+              <li><Link to="/category/sports" className="text-white/80 hover:text-orange transition-colors">Sports</Link></li>
+              <li><Link to="/category/books" className="text-white/80 hover:text-orange transition-colors">Books</Link></li>
             </ul>
           </div>
 
@@ -106,9 +107,9 @@ const Footer = () => {
             © 2024 EStore. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
-            <a href="#" className="text-white/60 hover:text-orange transition-colors">Privacy Policy</a>
-            <a href="#" className="text-white/60 hover:text-orange transition-colors">Terms of Service</a>
-            <a href="#" className="text-white/60 hover:text-orange transition-colors">Cookie Policy</a>
+            <Link to="/privacy-policy" className="text-white/60 hover:text-orange transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="text-white/60 hover:text-orange transition-colors">Terms of Service</Link>
+            <Link to="/privacy-policy" className="text-white/60 hover:text-orange transition-colors">Cookie Policy</Link>
           </div>
         </div>
       </div>
