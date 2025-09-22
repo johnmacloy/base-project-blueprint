@@ -1,4 +1,4 @@
-import { Star, ShoppingCart, Heart, X, Minus, Plus } from "lucide-react";
+import { Star, ShoppingCart, Heart, X, Minus, Plus, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -10,6 +10,7 @@ interface Product {
   price: number;
   originalPrice?: number;
   image: string;
+  images?: string[];
   rating: number;
   reviews: number;
   isOnSale?: boolean;
@@ -24,8 +25,13 @@ interface ProductQuickViewModalProps {
 
 const ProductQuickViewModal = ({ product, isOpen, onClose }: ProductQuickViewModalProps) => {
   const [quantity, setQuantity] = useState(1);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   if (!product) return null;
+
+  const allImages = product.images && product.images.length > 0 
+    ? product.images 
+    : [product.image];
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, index) => (
@@ -48,6 +54,14 @@ const ProductQuickViewModal = ({ product, isOpen, onClose }: ProductQuickViewMod
     }
   };
 
+  const goToNextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
+  };
+
+  const goToPrevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
+  };
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
@@ -64,18 +78,71 @@ const ProductQuickViewModal = ({ product, isOpen, onClose }: ProductQuickViewMod
         </DialogHeader>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Product Image */}
-          <div className="relative">
-            {product.isOnSale && product.discount && (
-              <Badge className="absolute top-4 left-4 bg-destructive text-white z-10">
-                -{product.discount}%
-              </Badge>
+          {/* Product Images Gallery */}
+          <div className="space-y-4">
+            {/* Main Image */}
+            <div className="relative">
+              {product.isOnSale && product.discount && (
+                <Badge className="absolute top-4 left-4 bg-destructive text-white z-10">
+                  -{product.discount}%
+                </Badge>
+              )}
+              <img 
+                src={allImages[currentImageIndex]} 
+                alt={product.name}
+                className="w-full h-96 md:h-[500px] object-cover rounded-lg"
+              />
+              
+              {/* Navigation arrows for multiple images */}
+              {allImages.length > 1 && (
+                <>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white"
+                    onClick={goToPrevImage}
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white"
+                    onClick={goToNextImage}
+                  >
+                    <ChevronRight className="h-4 w-4" />
+                  </Button>
+                  
+                  {/* Image counter */}
+                  <div className="absolute bottom-4 right-4 bg-black/70 text-white px-2 py-1 rounded text-sm">
+                    {currentImageIndex + 1} / {allImages.length}
+                  </div>
+                </>
+              )}
+            </div>
+
+            {/* Thumbnail Images */}
+            {allImages.length > 1 && (
+              <div className="flex gap-2 overflow-x-auto pb-2">
+                {allImages.map((img, index) => (
+                  <button
+                    key={index}
+                    className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                      currentImageIndex === index 
+                        ? 'border-primary' 
+                        : 'border-transparent hover:border-gray-300'
+                    }`}
+                    onClick={() => setCurrentImageIndex(index)}
+                  >
+                    <img 
+                      src={img} 
+                      alt={`${product.name} ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
             )}
-            <img 
-              src={product.image} 
-              alt={product.name}
-              className="w-full h-96 md:h-[500px] object-cover rounded-lg"
-            />
           </div>
 
           {/* Product Details */}

@@ -8,6 +8,7 @@ interface ProductCardProps {
   price: number;
   originalPrice?: number;
   image: string;
+  images?: string[];
   rating: number;
   reviews: number;
   isOnSale?: boolean;
@@ -21,6 +22,7 @@ const ProductCard = ({
   price, 
   originalPrice, 
   image, 
+  images,
   rating, 
   reviews, 
   isOnSale = false,
@@ -67,7 +69,7 @@ const ProductCard = ({
         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           <Button 
             className="bg-white text-navy hover:bg-gray-100 transition-all duration-300"
-            onClick={() => onQuickView?.({ id, name, price, originalPrice, image, rating, reviews, isOnSale, discount })}
+            onClick={() => onQuickView?.({ id, name, price, originalPrice, image, images, rating, reviews, isOnSale, discount })}
           >
             Quick View
           </Button>

@@ -15,6 +15,7 @@ const products = [
     price: 199.99,
     originalPrice: 249.99,
     image: headphones,
+    images: [headphones, smartphone, watch, laptop],
     rating: 5,
     reviews: 127,
     isOnSale: true,
@@ -25,6 +26,7 @@ const products = [
     name: "Latest Smartphone Pro Max",
     price: 999.99,
     image: smartphone,
+    images: [smartphone, headphones, camera],
     rating: 4,
     reviews: 89,
     isOnSale: false
@@ -35,6 +37,7 @@ const products = [
     price: 399.99,
     originalPrice: 499.99,
     image: watch,
+    images: [watch, smartphone, headphones, laptop, camera],
     rating: 4,
     reviews: 203,
     isOnSale: true,
@@ -45,6 +48,7 @@ const products = [
     name: "Ultra-thin Laptop",
     price: 1299.99,
     image: laptop,
+    images: [laptop, keyboard, smartphone],
     rating: 5,
     reviews: 156,
     isOnSale: false
@@ -55,6 +59,7 @@ const products = [
     price: 149.99,
     originalPrice: 199.99,
     image: keyboard,
+    images: [keyboard, laptop, headphones],
     rating: 4,
     reviews: 78,
     isOnSale: true,
@@ -65,6 +70,7 @@ const products = [
     name: "Professional DSLR Camera",
     price: 899.99,
     image: camera,
+    images: [camera, laptop, smartphone, watch],
     rating: 5,
     reviews: 234,
     isOnSale: false
