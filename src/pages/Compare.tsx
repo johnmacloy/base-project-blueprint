@@ -126,7 +126,7 @@ const Compare = () => {
                   
                   <CardContent className="p-4">
                     <div className="aspect-square bg-muted rounded-lg mb-4 flex items-center justify-center">
-                      <img src={product.image} alt={product.name} className="w-full h-full object-cover rounded-lg" />
+                      <img src={product.image} alt={product.name} className="w-full h-full object-contain p-2" />
                     </div>
                     
                     <h3 className="font-semibold text-text-primary mb-2 text-sm line-clamp-2">

@@ -81,7 +81,7 @@ const ProductQuickViewModal = ({ product, isOpen, onClose }: ProductQuickViewMod
           {/* Product Images Gallery */}
           <div className="space-y-4">
             {/* Main Image */}
-            <div className="relative">
+            <div className="relative aspect-square bg-background rounded-lg overflow-hidden">
               {product.isOnSale && product.discount && (
                 <Badge className="absolute top-4 left-4 bg-destructive text-white z-10">
                   -{product.discount}%
@@ -90,7 +90,7 @@ const ProductQuickViewModal = ({ product, isOpen, onClose }: ProductQuickViewMod
               <img 
                 src={allImages[currentImageIndex]} 
                 alt={product.name}
-                className="w-full h-96 md:h-[500px] object-cover rounded-lg"
+                className="w-full h-full object-contain p-4"
               />
               
               {/* Navigation arrows for multiple images */}
@@ -137,7 +137,7 @@ const ProductQuickViewModal = ({ product, isOpen, onClose }: ProductQuickViewMod
                     <img 
                       src={img} 
                       alt={`${product.name} ${index + 1}`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain p-2 bg-background"
                     />
                   </button>
                 ))}

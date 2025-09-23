@@ -116,7 +116,7 @@ const Deals = () => {
                 
                 <CardContent className="p-0">
                   <div className="aspect-square bg-muted flex items-center justify-center">
-                    <img src={deal.image} alt={deal.name} className="w-full h-full object-cover" />
+                    <img src={deal.image} alt={deal.name} className="w-full h-full object-contain p-4" />
                   </div>
                   
                   <div className="p-4">
@@ -164,7 +164,7 @@ const Deals = () => {
                 
                 <CardContent className="p-0">
                   <div className="aspect-square bg-muted flex items-center justify-center">
-                    <img src={deal.image} alt={deal.name} className="w-full h-full object-cover" />
+                    <img src={deal.image} alt={deal.name} className="w-full h-full object-contain p-4" />
                   </div>
                   
                   <div className="p-4">

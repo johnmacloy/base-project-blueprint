@@ -52,7 +52,7 @@ const ProductCard = ({
   return (
     <div className="product-card group transition-all duration-300 cursor-pointer" onClick={handleProductClick}>
       {/* Product Image */}
-      <div className="relative overflow-hidden rounded-lg mb-4">
+      <div className="relative overflow-hidden rounded-lg mb-4 aspect-square">
         {isOnSale && discount && (
           <Badge className="absolute top-2 left-2 bg-offer-red text-white z-10">
             -{discount}%
@@ -73,7 +73,7 @@ const ProductCard = ({
         <img 
           src={image} 
           alt={name}
-          className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
         />
         
         {/* Overlay with quick view button */}

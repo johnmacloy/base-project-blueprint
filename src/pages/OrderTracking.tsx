@@ -183,8 +183,8 @@ const OrderTracking = () => {
                   <div className="space-y-3">
                     {orderDetails.items.map((item, index) => (
                       <div key={index} className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center">
-                          <img src={item.image} alt={item.name} className="w-full h-full object-cover rounded-lg" />
+                        <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center p-1">
+                          <img src={item.image} alt={item.name} className="w-full h-full object-contain" />
                         </div>
                         <div className="flex-1">
                           <p className="font-medium text-text-primary">{item.name}</p>
