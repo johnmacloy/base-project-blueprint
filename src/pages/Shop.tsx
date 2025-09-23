@@ -22,6 +22,7 @@ const products = [
     price: 199.99,
     originalPrice: 249.99,
     image: headphones,
+    images: [headphones, smartphone, watch, laptop],
     rating: 5,
     reviews: 127,
     isOnSale: true,
@@ -33,6 +34,7 @@ const products = [
     name: "Latest Smartphone Pro Max",
     price: 999.99,
     image: smartphone,
+    images: [smartphone, headphones, camera],
     rating: 4,
     reviews: 89,
     isOnSale: false,
@@ -44,6 +46,7 @@ const products = [
     price: 399.99,
     originalPrice: 499.99,
     image: watch,
+    images: [watch, smartphone, headphones, laptop, camera],
     rating: 4,
     reviews: 203,
     isOnSale: true,
@@ -55,6 +58,7 @@ const products = [
     name: "Ultra-thin Laptop",
     price: 1299.99,
     image: laptop,
+    images: [laptop, keyboard, smartphone],
     rating: 5,
     reviews: 156,
     isOnSale: false,
@@ -66,6 +70,7 @@ const products = [
     price: 149.99,
     originalPrice: 199.99,
     image: keyboard,
+    images: [keyboard, laptop, headphones],
     rating: 4,
     reviews: 78,
     isOnSale: true,
@@ -77,6 +82,7 @@ const products = [
     name: "Professional DSLR Camera",
     price: 899.99,
     image: camera,
+    images: [camera, laptop, smartphone, watch],
     rating: 5,
     reviews: 234,
     isOnSale: false,
@@ -106,9 +112,9 @@ const Shop = () => {
             <p className="text-text-secondary">Showing 1-6 of 24 products</p>
           </div>
           
-          <div className="flex items-center gap-4 mt-4 md:mt-0">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-4 md:mt-0">
             {/* View Toggle */}
-            <div className="flex border border-border rounded-lg overflow-hidden">
+            <div className="hidden sm:flex border border-border rounded-lg overflow-hidden">
               <Button
                 variant={viewMode === "grid" ? "default" : "ghost"}
                 size="sm"
@@ -129,7 +135,7 @@ const Shop = () => {
 
             {/* Sort */}
             <Select defaultValue="featured">
-              <SelectTrigger className="w-48">
+              <SelectTrigger className="w-full sm:w-48">
                 <SelectValue placeholder="Sort by" />
               </SelectTrigger>
               <SelectContent>
@@ -145,7 +151,7 @@ const Shop = () => {
             <Button
               variant="outline"
               onClick={() => setShowFilters(!showFilters)}
-              className="md:hidden"
+              className="lg:hidden w-full sm:w-auto"
             >
               <Filter className="h-4 w-4 mr-2" />
               Filters
@@ -153,9 +159,9 @@ const Shop = () => {
           </div>
         </div>
 
-        <div className="flex gap-8">
+        <div className="flex flex-col lg:flex-row gap-8">
           {/* Sidebar Filters */}
-          <aside className={`w-80 ${showFilters ? 'block' : 'hidden'} md:block`}>
+          <aside className={`w-full lg:w-80 ${showFilters ? 'block' : 'hidden'} lg:block`}>
             <div className="bg-card p-6 rounded-lg space-y-6">
               <h3 className="font-semibold text-lg text-text-primary">Filters</h3>
 
@@ -219,7 +225,7 @@ const Shop = () => {
           <div className="flex-1">
             <div className={`grid gap-6 ${
               viewMode === "grid" 
-                ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3" 
+                ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3" 
                 : "grid-cols-1"
             }`}>
               {products.map((product) => (
