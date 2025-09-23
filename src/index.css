@@ -171,6 +171,17 @@ All colors MUST be HSL.
     color: hsl(var(--offer-red));
   }
   
+  /* Animation keyframes */
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  /* Animation utilities */
+  .animate-spin-slow {
+    animation: spin-slow 3s linear infinite;
+  }
+  
   .gradient-hero {
     background: var(--gradient-hero);
   }

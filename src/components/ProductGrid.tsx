@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import ProductQuickViewModal from "./ProductQuickViewModal";
 import headphones from "@/assets/headphones.jpg";
@@ -114,9 +115,9 @@ const ProductGrid = () => {
         </div>
 
         <div className="text-center">
-          <button className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+          <Link to="/shop" className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors inline-block">
             View All Products
-          </button>
+          </Link>
         </div>
 
         <ProductQuickViewModal

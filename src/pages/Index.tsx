@@ -9,12 +9,12 @@ import Testimonials from "@/components/Testimonials";
 import Newsletter from "@/components/Newsletter";
 import BrandShowcase from "@/components/BrandShowcase";
 import Footer from "@/components/Footer";
-import AdBanners from "@/components/AdBanners";
+
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <AdBanners />
+      
       <Header />
       <main>
         <HeroSlider />
